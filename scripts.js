@@ -5,27 +5,27 @@ $(document).ready(function() {
 
    var numberInput = parseInt($("#numberInput").val());
    var start = 1;
-debugger;
+// debugger;
    var list = [];
    var finalArray = [];
-    for (var index = start; index <= numberInput; index++) {
 
-      list.push(index);
+      for (var i = 1; i <= numberInput ; i += 1) {
 
-
+        if ((i % 15)===0) {
+          $("#result").append("<li> Ping Pong! </li>");
+        }
+        else if ((i % 5)===0) {
+          $("#result").append("<li> Pong! </li>");
+        }
+        else if ((i % 3)===0) {
+          $("#result").append("<li> Ping! </li>");
+        }
+        else {
+          $("#result").append("<li>"+i+"</li>");
+        }
+  //   if ( (isNaN(numberInput) || (numberInput < 0)){
+  //   alert("THIS INPUT ONLY ACCEPTS NUMBER VALUES GREATER THAN 0");
+  // }
    }
-   for (var x=1; x <= list.length; x++){
-       if( x % 3 && x % 5 ) {
-           finalArray = list.replace(x, "pingpong");
-       } else {
-           if( x % 3 == 0 ) {
-               finalArray = list.replace(x, "ping");
-           }
-           if( x % 5 == 0 ) {
-               finalArray = list.replace(x, "pong");
-           }
-       }
-       $("#result").text(finalArray);
-   }
- });
+  });
 });
